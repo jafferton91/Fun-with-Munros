@@ -8,10 +8,11 @@ import io.munros.test.helper.createCsvDataForTest
 import org.junit.Test
 import kotlin.test.assertEquals
 
-internal class MunroAwesomeMainTests : BaseTest() {
+internal class MunroAwesomeCoreTests : BaseTest() {
 
     @Test fun sortByCategory() {
         val testSet = ArrayList<CsvData>()
+
         testSet.add(createCsvDataForTest(amyNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(benNevis, 2000.0, MunroCategory.Top))
         testSet.add(createCsvDataForTest(chrisNevis, 2000.0, MunroCategory.Munro))
