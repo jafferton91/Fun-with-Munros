@@ -101,7 +101,7 @@ private fun importMunrosFromCsv(path: String?): ArrayList<CsvData>? {
             val values = parseLine(line, ',')
 
             if (values.isNotEmpty() && values[Name]!!.isNotEmpty()) {
-                val munro = CsvData(
+                val csvData = CsvData(
                     values[Running_No],
                     values[DoBIH_Number],
                     values[Streetmap],
@@ -130,11 +130,9 @@ private fun importMunrosFromCsv(path: String?): ArrayList<CsvData>? {
                     values[date_1990],
                     values[date_1997],
                     values[Post_1997]?.toMunroCategory(MUNRO, TOP),
-                    null
+                    null)
 
-                )
-
-                munros.add(munro)
+                munros.add(csvData)
 
             }
 
