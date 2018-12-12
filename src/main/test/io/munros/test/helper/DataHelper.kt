@@ -4,7 +4,7 @@ import io.munros.library.data.enums.MunroCategory
 import io.munros.library.util.CsvData
 
 // Create easily a csvData entry for test
-fun createCsvDataForTest(name: String, height: Double, munroCategory: MunroCategory): CsvData {
+fun createCsvDataForTest(name: String, height: Double, munroCategory: MunroCategory?): CsvData {
     return CsvData(
         null,
         null,

@@ -61,7 +61,10 @@ fun List<CsvData>.endChain(): List<Munro>? {
     val resultList = ArrayList<Munro>()
 
     this.forEach { munro ->
-        resultList.add(Munro(munro.name, munro.heightMetres, munro.post1997, munro.gridRef))
+        if (munro.post1997 != null) {
+            resultList.add(Munro(munro.name, munro.heightMetres, munro.post1997, munro.gridRef))
+
+        }
 
     }
 
