@@ -44,7 +44,7 @@ fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
         SortDirection.Asc -> this?.sortedBy { x -> x.heightMetres }
         SortDirection.Desc -> this?.sortedByDescending { x -> x.heightMetres }
 
-        null -> this?.sortedBy { x -> x.name }
+        null -> this?.sortedBy { x -> x.heightMetres }
 
     }
 
