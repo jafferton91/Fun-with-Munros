@@ -57,6 +57,11 @@ fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<Csv
 
 }
 
+/**
+ *
+ * This method should be called at the end of any chain or by itself
+ *
+ */
 fun List<CsvData>.endChain(): List<Munro>? {
     val resultList = ArrayList<Munro>()
 
