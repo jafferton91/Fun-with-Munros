@@ -1,11 +1,8 @@
 package io.munros.test
 
+import io.munros.library.*
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
-import io.munros.library.makeNice
-import io.munros.library.sortByCategory
-import io.munros.library.sortByHeight
-import io.munros.library.sortByName
 import io.munros.library.util.CsvData
 import io.munros.test.helper.createCsvDataForTest
 import org.junit.Test
@@ -115,9 +112,19 @@ internal class MunroAwesomeMainTests {
     }
 
     @Test  fun filterHeights() {
-    }
+        val testSet = ArrayList<CsvData>()
 
-    @Test  fun makeNice() {
+        testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
+
+        val listFilteredHeights = testSet.filterHeights(small, big)?.makeNice()
+
+        assertEquals(3, listFilteredHeights?.size)
+
     }
 
 }
