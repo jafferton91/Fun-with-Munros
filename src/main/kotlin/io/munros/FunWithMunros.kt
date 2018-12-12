@@ -27,6 +27,9 @@ fun main() {
 
     val chainFilters = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()
 
+    // Use existing methods to limit results
+    val chainFiltersTopTen = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.makeNice()
+
     val test = ""
 
 }
