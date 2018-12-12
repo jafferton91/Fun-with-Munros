@@ -20,8 +20,8 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(elfNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(funNevis, 2000.0, MunroCategory.Top))
 
-        val listOfMunros = testSet.sortByCategory(MunroCategory.Munro)?.makeNice()
-        val listOfTops = testSet.sortByCategory(MunroCategory.Top)?.makeNice()
+        val listOfMunros = testSet.sortByCategory(MunroCategory.Munro)?.endChain()
+        val listOfTops = testSet.sortByCategory(MunroCategory.Top)?.endChain()
 
         assertEquals(3, listOfMunros?.size)
         assertEquals(3, listOfTops?.size)
@@ -38,8 +38,8 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(chrisNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, 2000.0, MunroCategory.Top))
 
-        val listAsc = testSet.sortByName(SortDirection.Asc)?.makeNice()
-        val listDesc = testSet.sortByName(SortDirection.Desc)?.makeNice()
+        val listAsc = testSet.sortByName(SortDirection.Asc)?.endChain()
+        val listDesc = testSet.sortByName(SortDirection.Desc)?.endChain()
 
         // asc order
         assertEquals(amyNevis, listAsc!![0].name)
@@ -69,8 +69,8 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
-        val listAsc = testSet.sortByHeight(SortDirection.Asc)?.makeNice()
-        val listDesc = testSet.sortByHeight(SortDirection.Desc)?.makeNice()
+        val listAsc = testSet.sortByHeight(SortDirection.Asc)?.endChain()
+        val listDesc = testSet.sortByHeight(SortDirection.Desc)?.endChain()
 
         // asc order
         assertEquals(smallest, listAsc!![0].height)
@@ -100,7 +100,7 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
-        val listFilteredHeights = testSet.filterHeights(small, big)?.makeNice()
+        val listFilteredHeights = testSet.filterHeights(small, big)?.endChain()
 
         assertEquals(3, listFilteredHeights?.size)
 

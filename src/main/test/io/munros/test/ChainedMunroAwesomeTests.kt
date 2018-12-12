@@ -2,7 +2,7 @@ package io.munros.test
 
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
-import io.munros.library.makeNice
+import io.munros.library.endChain
 import io.munros.library.sortByCategory
 import io.munros.library.sortByName
 import io.munros.library.util.CsvData
@@ -22,8 +22,8 @@ class ChainedMunroAwesomeTests : BaseTest() {
         testSet.add(createCsvDataForTest(chrisNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, 2000.0, MunroCategory.Top))
 
-        val listOfMunros = testSet.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Asc)?.makeNice()
-        val listOfTops = testSet.sortByCategory(MunroCategory.Top)?.sortByName(SortDirection.Asc)?.makeNice()
+        val listOfMunros = testSet.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Asc)?.endChain()
+        val listOfTops = testSet.sortByCategory(MunroCategory.Top)?.sortByName(SortDirection.Asc)?.endChain()
 
         // category sort split
         assertEquals(3, listOfMunros?.size)

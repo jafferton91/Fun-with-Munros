@@ -19,32 +19,32 @@ fun main() {
 
     // Category sort case -
     // Create our sort options
-    val sortCategoryCaseAsc = munros.sortByCategory(MunroCategory.Munro)?.makeNice()
-    val sortCategoryCaseDesc = munros.sortByCategory(MunroCategory.Top)?.makeNice()
-    val sortCategoryCaseNull = munros.sortByCategory(null)?.makeNice()
+    val sortCategoryCaseAsc = munros.sortByCategory(MunroCategory.Munro)?.endChain()
+    val sortCategoryCaseDesc = munros.sortByCategory(MunroCategory.Top)?.endChain()
+    val sortCategoryCaseNull = munros.sortByCategory(null)?.endChain()
 
     // name sort case -
     // Create our sort options
-    val sortNameCaseAsc = munros.sortByName(SortDirection.Asc)?.makeNice()
-    val sortNameCaseDesc = munros.sortByName(SortDirection.Desc)?.makeNice()
-    val sortNameCaseNull = munros.sortByName(null)?.makeNice()
+    val sortNameCaseAsc = munros.sortByName(SortDirection.Asc)?.endChain()
+    val sortNameCaseDesc = munros.sortByName(SortDirection.Desc)?.endChain()
+    val sortNameCaseNull = munros.sortByName(null)?.endChain()
 
     // Height sort case -
     // Create our sort options
-    val sortHeightCaseAsc = munros.sortByHeight(SortDirection.Asc)?.makeNice()
-    val sortHeightCaseDesc = munros.sortByHeight(SortDirection.Desc)?.makeNice()
-    val sortHeightCaseNull = munros.sortByHeight(null)?.makeNice()
+    val sortHeightCaseAsc = munros.sortByHeight(SortDirection.Asc)?.endChain()
+    val sortHeightCaseDesc = munros.sortByHeight(SortDirection.Desc)?.endChain()
+    val sortHeightCaseNull = munros.sortByHeight(null)?.endChain()
 
     // Min/Max Height filters
-    val filterMinHeight = munros.filterHeights(1000.0, 1250.0)?.sortByName(null)?.makeNice()
-    val filterMaxHeight = munros.filterHeights(0.0, 1000.0)?.makeNice()
+    val filterMinHeight = munros.filterHeights(1000.0, 1250.0)?.sortByName(null)?.endChain()
+    val filterMaxHeight = munros.filterHeights(0.0, 1000.0)?.endChain()
 
     // Chaining possibilities
-    val chainFilters = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()
+    val chainFilters = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.endChain()
 
     // Use existing methods to limit results and manipulate the list
-    val chainFiltersTopTenPre = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.makeNice()
-    val chainFiltersTopTenPost = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()?.take(10)
+    val chainFiltersTopTenPre = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.endChain()
+    val chainFiltersTopTenPost = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.endChain()?.take(10)
 
 }
 

@@ -12,7 +12,7 @@ import io.munros.library.util.MunroException
  *
  * This allows chaining of methods to easily get the desired set of filters/sort options
  *
- * Each chain should end with [makeNice] to convert the list into a list of [Munro] items
+ * Each chain should end with [endChain] to convert the list into a list of [Munro] items
  *
  */
 
@@ -57,7 +57,7 @@ fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<Csv
 
 }
 
-fun List<CsvData>.makeNice(): List<Munro>? {
+fun List<CsvData>.endChain(): List<Munro>? {
     val resultList = ArrayList<Munro>()
 
     this.forEach { munro ->

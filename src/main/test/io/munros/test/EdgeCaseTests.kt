@@ -2,7 +2,7 @@ package io.munros.test
 
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.filterHeights
-import io.munros.library.makeNice
+import io.munros.library.endChain
 import io.munros.library.util.CsvData
 import io.munros.library.util.MunroException
 import io.munros.test.helper.createCsvDataForTest
@@ -24,7 +24,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
-        val listFilteredHeights = testSet.filterHeights(small, big)?.makeNice()?.take(numberToTake)
+        val listFilteredHeights = testSet.filterHeights(small, big)?.endChain()?.take(numberToTake)
 
         assertEquals(numberToTake, listFilteredHeights?.size)
 
@@ -41,7 +41,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
         // Min height is larger than max height
-        assertFailsWith(MunroException::class) { testSet.filterHeights(big, small)?.makeNice() }
+        assertFailsWith(MunroException::class) { testSet.filterHeights(big, small)?.endChain() }
 
     }
 
