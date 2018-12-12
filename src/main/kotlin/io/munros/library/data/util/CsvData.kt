@@ -1,6 +1,14 @@
-package io.munros.data.model
+package io.munros.library.data.util
 
-data class Munro constructor(
+import io.munros.library.data.enums.MunroCategory
+
+/**
+ *
+ * Container for the CSV data we want to sort/filter
+ *
+ */
+
+data class CsvData constructor(
     val Running_No: String?,
     val DoBIH_Number: String?,
     val Streetmap: String?,
@@ -10,7 +18,7 @@ data class Munro constructor(
     val SMC_Section: String?,
     val RHB_Section: String?,
     val _Section: String?,
-    val Height_m: String?,
+    val Height_m: Double?,
     val Height_ft: String?,
     val Map_1_50: String?,
     val Map_1_25: String?,
@@ -28,6 +36,6 @@ data class Munro constructor(
     val date_1984: String?,
     val date_1990: String?,
     val date_1997: String?,
-    val post_1997: String?,
+    val post_1997: MunroCategory?,
     val Comments: String?
 )

@@ -1,9 +1,11 @@
 package io.munros
 
-import io.munros.data.enums.MunroCategory
-import io.munros.data.enums.SortDirection
-import io.munros.data.model.Munro
+import io.munros.library.data.enums.MunroCategory
+import io.munros.library.data.enums.SortDirection
+import io.munros.library.data.util.CsvData
 import io.munros.ext.log
+import io.munros.ext.toMunroCategory
+import io.munros.library.*
 import java.io.BufferedReader
 import java.io.FileReader
 import java.io.IOException
@@ -11,9 +13,11 @@ import java.io.IOException
 fun main() {
 
     // Up to you to get data from whatever munro csv and map to munro model
+    // pros - use csv library of choice, use different csv file
+    // cons - manual work for user
     val munros = importMunrosFromCsv("libs/munrotab_v6.2.csv")
 
-    // Name sort case -
+    // Category sort case -
     // Create our sort options
     val sortCategoryCaseAsc = munros.sortByCategory(MunroCategory.Munro)?.makeNice()
     val sortCategoryCaseDesc = munros.sortByCategory(MunroCategory.Top)?.makeNice()
@@ -25,10 +29,22 @@ fun main() {
     val sortNameCaseDesc = munros.sortByName(SortDirection.Desc)?.makeNice()
     val sortNameCaseNull = munros.sortByName(null)?.makeNice()
 
+    // Height sort case -
+    // Create our sort options
+    val sortHeightCaseAsc = munros.sortByHeight(SortDirection.Asc)?.makeNice()
+    val sortHeightCaseDesc = munros.sortByHeight(SortDirection.Desc)?.makeNice()
+    val sortHeightCaseNull = munros.sortByHeight(null)?.makeNice()
+
+    // Min/Max Height filters
+    val filterMinHeight = munros.setMinHeight(1250.0)?.sortByName(null)?.makeNice()
+    val filterMaxHeight = munros.setMaxHeight(1000.0)?.makeNice()
+
+    // Chaining possibilities
     val chainFilters = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()
 
-    // Use existing methods to limit results
-    val chainFiltersTopTen = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.makeNice()
+    // Use existing methods to limit results and manipulate the list
+    val chainFiltersTopTenPre = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.makeNice()
+    val chainFiltersTopTenPost = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()?.take(10)
 
     val test = ""
 
@@ -65,11 +81,14 @@ private const val date_1997: Int = 26
 private const val Post_1997: Int = 27
 private const val Comments: Int = 28
 
-private fun importMunrosFromCsv(path: String?): ArrayList<Munro>? {
+private const val TOP = "TOP"
+private const val MUNRO = "MUN"
+
+private fun importMunrosFromCsv(path: String?): ArrayList<CsvData>? {
     var fileReader: BufferedReader? = null
 
     try {
-        val munros = ArrayList<Munro>()
+        val munros = ArrayList<CsvData>()
         var line: String?
 
         fileReader = BufferedReader(FileReader(path))
@@ -84,7 +103,7 @@ private fun importMunrosFromCsv(path: String?): ArrayList<Munro>? {
             val values = parseLine(line, ',')
 
             if (values.isNotEmpty() && values[Name]!!.isNotEmpty()) {
-                val munro = Munro(
+                val munro = CsvData(
                     values[Running_No],
                     values[DoBIH_Number],
                     values[Streetmap],
@@ -94,7 +113,7 @@ private fun importMunrosFromCsv(path: String?): ArrayList<Munro>? {
                     values[SMC_Section],
                     values[RHB_Section],
                     values[_Section],
-                    values[Height_m],
+                    values[Height_m]?.toDoubleOrNull(),
                     values[Height_ft],
                     values[Map_1_50],
                     values[Map_1_25],
@@ -112,7 +131,7 @@ private fun importMunrosFromCsv(path: String?): ArrayList<Munro>? {
                     values[date_1984],
                     values[date_1990],
                     values[date_1997],
-                    values[Post_1997],
+                    values[Post_1997]?.toMunroCategory(MUNRO, TOP),
                     null
 
                 )

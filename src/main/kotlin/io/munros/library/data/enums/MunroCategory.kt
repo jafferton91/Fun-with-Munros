@@ -1,4 +1,4 @@
-package io.munros.data.enums
+package io.munros.library.data.enums
 
 enum class MunroCategory {
     Munro,
