@@ -4,6 +4,7 @@ import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
 import io.munros.library.makeNice
 import io.munros.library.sortByCategory
+import io.munros.library.sortByHeight
 import io.munros.library.sortByName
 import io.munros.library.util.CsvData
 import io.munros.test.helper.createCsvDataForTest
@@ -26,6 +27,14 @@ internal class MunroAwesomeMainTests {
     private val daveNevis = "Dave Nevis"
     private val elfNevis = "Elf Nevis"
     private val funNevis = "Fun Nevis"
+
+    private val smallest = 1000.0
+    private val smaller = 3000.0
+    private val small = 5000.0
+    private val medium = 6000.0
+    private val big = 8000.0
+    private val biggest = 10000.0
+
 
     @Test fun sortByCategory() {
         val testSet = ArrayList<CsvData>()
@@ -75,6 +84,34 @@ internal class MunroAwesomeMainTests {
     }
 
     @Test  fun sortByHeight() {
+        val testSet = ArrayList<CsvData>()
+
+        testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
+
+        val listAsc = testSet.sortByHeight(SortDirection.Asc)?.makeNice()
+        val listDesc = testSet.sortByHeight(SortDirection.Desc)?.makeNice()
+
+        // asc order
+        assertEquals(smallest, listAsc!![0].height)
+        assertEquals(smaller, listAsc[1].height)
+        assertEquals(small, listAsc[2].height)
+        assertEquals(medium, listAsc[3].height)
+        assertEquals(big, listAsc[4].height)
+        assertEquals(biggest, listAsc[5].height)
+
+        // desc order
+        assertEquals(biggest, listDesc!![0].height)
+        assertEquals(big, listDesc[1].height)
+        assertEquals(medium, listDesc[2].height)
+        assertEquals(small, listDesc[3].height)
+        assertEquals(smaller, listDesc[4].height)
+        assertEquals(smallest, listDesc[5].height)
+
     }
 
     @Test  fun filterHeights() {
