@@ -18,9 +18,9 @@ import io.munros.library.util.MunroException
 
 fun List<CsvData>?.sortByCategory(munroCategory: MunroCategory?): List<CsvData>? {
     return when (munroCategory) {
-        MunroCategory.Munro -> this?.filter { x -> x.post_1997 == MunroCategory.Munro }
-        MunroCategory.Top -> this?.filter { x -> x.post_1997 == MunroCategory.Top }
-        MunroCategory.Either -> this?.filter { x -> x.post_1997 != null }
+        MunroCategory.Munro -> this?.filter { x -> x.post1997 == MunroCategory.Munro }
+        MunroCategory.Top -> this?.filter { x -> x.post1997 == MunroCategory.Top }
+        MunroCategory.Either -> this?.filter { x -> x.post1997 != null }
 
         else -> { this }
 
@@ -30,10 +30,10 @@ fun List<CsvData>?.sortByCategory(munroCategory: MunroCategory?): List<CsvData>?
 
 fun List<CsvData>?.sortByName(sortDirection: SortDirection?): List<CsvData>? {
     return when (sortDirection) {
-        SortDirection.Asc -> this?.sortedBy { x -> x.Name }
-        SortDirection.Desc -> this?.sortedByDescending { x -> x.Name }
+        SortDirection.Asc -> this?.sortedBy { x -> x.name }
+        SortDirection.Desc -> this?.sortedByDescending { x -> x.name }
 
-        null -> this?.sortedBy { x -> x.Name }
+        null -> this?.sortedBy { x -> x.name }
 
     }
 
@@ -41,10 +41,10 @@ fun List<CsvData>?.sortByName(sortDirection: SortDirection?): List<CsvData>? {
 
 fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
     return when (sortDirection) {
-        SortDirection.Asc -> this?.sortedBy { x -> x.Height_m }
-        SortDirection.Desc -> this?.sortedByDescending { x -> x.Height_m }
+        SortDirection.Asc -> this?.sortedBy { x -> x.heightMetres }
+        SortDirection.Desc -> this?.sortedByDescending { x -> x.heightMetres }
 
-        null -> this?.sortedBy { x -> x.Name }
+        null -> this?.sortedBy { x -> x.name }
 
     }
 
@@ -53,7 +53,7 @@ fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
 fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<CsvData>? {
     if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
 
-    return this?.filter { x -> x.Height_m != null && x.Height_m >= minHeight && x.Height_m <= maxHeight }
+    return this?.filter { x -> x.heightMetres != null && x.heightMetres >= minHeight && x.heightMetres <= maxHeight }
 
 }
 
@@ -61,7 +61,7 @@ fun List<CsvData>.makeNice(): List<Munro>? {
     val resultList = ArrayList<Munro>()
 
     this.forEach { munro ->
-        resultList.add(Munro(munro.Name, munro.Height_m, munro.post_1997, munro.Grid_Ref))
+        resultList.add(Munro(munro.name, munro.heightMetres, munro.post1997, munro.gridRef))
 
     }
 

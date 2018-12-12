@@ -23,7 +23,7 @@ fun main() {
     val sortCategoryCaseDesc = munros.sortByCategory(MunroCategory.Top)?.makeNice()
     val sortCategoryCaseNull = munros.sortByCategory(null)?.makeNice()
 
-    // Name sort case -
+    // name sort case -
     // Create our sort options
     val sortNameCaseAsc = munros.sortByName(SortDirection.Asc)?.makeNice()
     val sortNameCaseDesc = munros.sortByName(SortDirection.Desc)?.makeNice()

@@ -7,10 +7,10 @@ import io.munros.library.sortByCategory
 import io.munros.library.sortByName
 import io.munros.library.util.CsvData
 import io.munros.test.helper.createCsvDataForTest
-import junit.framework.Assert.assertEquals
 import org.junit.Test
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
+import kotlin.test.assertEquals
 
 internal class MunroAwesomeMainTests {
 
