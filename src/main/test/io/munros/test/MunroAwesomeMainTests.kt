@@ -6,32 +6,9 @@ import io.munros.library.data.enums.SortDirection
 import io.munros.library.util.CsvData
 import io.munros.test.helper.createCsvDataForTest
 import org.junit.Test
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
 import kotlin.test.assertEquals
 
-internal class MunroAwesomeMainTests {
-
-    @BeforeEach fun setUp() {
-    }
-
-    @AfterEach fun tearDown() {
-    }
-
-    private val amyNevis = "Amy Nevis"
-    private val benNevis = "Ben Nevis"
-    private val chrisNevis = "Chris Nevis"
-    private val daveNevis = "Dave Nevis"
-    private val elfNevis = "Elf Nevis"
-    private val funNevis = "Fun Nevis"
-
-    private val smallest = 1000.0
-    private val smaller = 3000.0
-    private val small = 5000.0
-    private val medium = 6000.0
-    private val big = 8000.0
-    private val biggest = 10000.0
-
+internal class MunroAwesomeMainTests : BaseTest() {
 
     @Test fun sortByCategory() {
         val testSet = ArrayList<CsvData>()
@@ -47,6 +24,7 @@ internal class MunroAwesomeMainTests {
 
         assertEquals(3, listOfMunros?.size)
         assertEquals(3, listOfTops?.size)
+
     }
 
     @Test fun sortByName() {

@@ -16,7 +16,6 @@ import io.munros.library.util.MunroException
  *
  */
 
-
 fun List<CsvData>?.sortByCategory(munroCategory: MunroCategory?): List<CsvData>? {
     return when (munroCategory) {
         MunroCategory.Munro -> this?.filter { x -> x.post1997 == MunroCategory.Munro }
@@ -29,7 +28,6 @@ fun List<CsvData>?.sortByCategory(munroCategory: MunroCategory?): List<CsvData>?
 
 }
 
-
 fun List<CsvData>?.sortByName(sortDirection: SortDirection?): List<CsvData>? {
     return when (sortDirection) {
         SortDirection.Asc -> this?.sortedBy { x -> x.name }
@@ -40,7 +38,6 @@ fun List<CsvData>?.sortByName(sortDirection: SortDirection?): List<CsvData>? {
     }
 
 }
-
 
 fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
     return when (sortDirection) {
@@ -53,14 +50,12 @@ fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
 
 }
 
-
 fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<CsvData>? {
     if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
 
     return this?.filter { x -> x.heightMetres != null && x.heightMetres >= minHeight && x.heightMetres <= maxHeight }
 
 }
-
 
 fun List<CsvData>.makeNice(): List<Munro>? {
     val resultList = ArrayList<Munro>()
