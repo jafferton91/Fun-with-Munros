@@ -2,7 +2,7 @@ package io.munros
 
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
-import io.munros.library.data.util.CsvData
+import io.munros.library.util.CsvData
 import io.munros.ext.log
 import io.munros.ext.toMunroCategory
 import io.munros.library.*
@@ -36,8 +36,8 @@ fun main() {
     val sortHeightCaseNull = munros.sortByHeight(null)?.makeNice()
 
     // Min/Max Height filters
-    val filterMinHeight = munros.setMinHeight(1250.0)?.sortByName(null)?.makeNice()
-    val filterMaxHeight = munros.setMaxHeight(1000.0)?.makeNice()
+    val filterMinHeight = munros.filterHeights(1000.0, 1250.0)?.sortByName(null)?.makeNice()
+    val filterMaxHeight = munros.filterHeights(0.0, 1000.0)?.makeNice()
 
     // Chaining possibilities
     val chainFilters = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()

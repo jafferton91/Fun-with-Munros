@@ -2,8 +2,9 @@ package io.munros.library
 
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
-import io.munros.library.data.util.CsvData
+import io.munros.library.util.CsvData
 import io.munros.library.data.model.Munro
+import io.munros.library.util.MunroException
 
 /**
  *
@@ -49,13 +50,10 @@ fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
 
 }
 
-fun List<CsvData>?.setMinHeight(minHeight: Double = 0.0): List<CsvData>? {
-    return this?.filter { x -> x.Height_m != null && x.Height_m >= minHeight }
+fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<CsvData>? {
+    if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
 
-}
-
-fun List<CsvData>?.setMaxHeight(maxHeight: Double = 0.0): List<CsvData>? {
-    return this?.filter { x -> x.Height_m != null && x.Height_m <= maxHeight }
+    return this?.filter { x -> x.Height_m != null && x.Height_m >= minHeight && x.Height_m <= maxHeight }
 
 }
 
