@@ -46,8 +46,6 @@ fun main() {
     val chainFiltersTopTenPre = munros.sortByCategory(MunroCategory.Munro)?.take(10)?.sortByName(SortDirection.Desc)?.makeNice()
     val chainFiltersTopTenPost = munros.sortByCategory(MunroCategory.Munro)?.sortByName(SortDirection.Desc)?.makeNice()?.take(10)
 
-    val test = ""
-
 }
 
 // Indexes
