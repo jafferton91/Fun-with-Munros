@@ -14,6 +14,10 @@ import io.munros.library.util.MunroException
  *
  * Each chain should end with [endChain] to convert the list into a list of [Munro] items
  *
+ * [sortByCategory], [sortByName], [sortByHeight], [filterHeights] are single use methods
+ *
+ * [createAscChain], [createDescChain] are designed to take multiple fields to sort the data
+ *
  */
 
 fun List<CsvData>?.sortByCategory(munroCategory: MunroCategory?): List<CsvData>? {

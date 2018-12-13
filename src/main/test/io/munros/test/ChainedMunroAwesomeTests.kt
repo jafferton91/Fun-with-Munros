@@ -130,4 +130,31 @@ class ChainedMunroAwesomeTests : BaseTest() {
 
     }
 
+    @Test fun sortByNameThenByHeightWithAdvancedSortDescThenFilterHeights() {
+        val testSet = ArrayList<CsvData>()
+
+        testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
+        testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, biggest, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(chrisNevis, biggest, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
+
+        val listOfMunros = testSet.createDescChain(CsvData::heightMetres, CsvData::name)?.filterHeights(biggest, biggest)?.endChain()
+
+        // category sort split
+        assertEquals(3, listOfMunros?.size)
+
+        // should be in height order desc
+        assertEquals(biggest, listOfMunros!![0].height)
+        assertEquals(biggest, listOfMunros[1].height)
+        assertEquals(biggest, listOfMunros[2].height)
+
+        // should be ordered by name when height is the same
+        assertEquals(ellieNevis, listOfMunros[0].name)
+        assertEquals(chrisNevis, listOfMunros[1].name)
+        assertEquals(amyNevis, listOfMunros[2].name)
+
+    }
+
 }
