@@ -54,13 +54,13 @@ class ChainedMunroAwesomeTests : BaseTest() {
         // category sort split
         assertEquals(6, listOfMunros?.size)
 
-        // should be in height order
-        assertEquals(smallest, listOfMunros!![0].height)
-        assertEquals(smaller, listOfMunros[1].height)
-        assertEquals(small, listOfMunros[2].height)
-        assertEquals(medium, listOfMunros[3].height)
-        assertEquals(big, listOfMunros[4].height)
-        assertEquals(biggest, listOfMunros[5].height)
+        // should be in name order
+        assertEquals(amyNevis, listOfMunros!![0].name)
+        assertEquals(benNevis, listOfMunros[1].name)
+        assertEquals(chrisNevis, listOfMunros[2].name)
+        assertEquals(daveNevis, listOfMunros[3].name)
+        assertEquals(ellieNevis, listOfMunros[4].name)
+        assertEquals(funNevis, listOfMunros[5].name)
 
     }
 
