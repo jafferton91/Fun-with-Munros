@@ -1,7 +1,7 @@
 package io.munros.test.helper
 
 import io.munros.library.data.enums.MunroCategory
-import io.munros.library.util.CsvData
+import io.munros.library.data.model.CsvData
 
 // Create easily a csvData entry for test
 fun createCsvDataForTest(name: String, height: Double, munroCategory: MunroCategory?): CsvData {
@@ -34,6 +34,7 @@ fun createCsvDataForTest(name: String, height: Double, munroCategory: MunroCateg
         null,
         null,
         munroCategory,
-        null)
+        null
+    )
 
 }

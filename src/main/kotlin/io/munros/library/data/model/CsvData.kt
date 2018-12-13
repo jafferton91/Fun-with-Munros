@@ -1,4 +1,4 @@
-package io.munros.library.util
+package io.munros.library.data.model
 
 import io.munros.library.data.enums.MunroCategory
 

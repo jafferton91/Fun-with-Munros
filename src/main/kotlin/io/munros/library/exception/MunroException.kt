@@ -1,4 +1,4 @@
-package io.munros.library.util
+package io.munros.library.exception
 
 import java.lang.Exception
 

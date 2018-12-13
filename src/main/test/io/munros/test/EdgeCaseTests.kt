@@ -3,8 +3,8 @@ package io.munros.test
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.filterHeights
 import io.munros.library.endChain
-import io.munros.library.util.CsvData
-import io.munros.library.util.MunroException
+import io.munros.library.data.model.CsvData
+import io.munros.library.exception.MunroException
 import io.munros.test.helper.createCsvDataForTest
 import org.junit.Test
 import kotlin.test.assertEquals

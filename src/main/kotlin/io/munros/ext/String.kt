@@ -1,7 +1,7 @@
 package io.munros.ext
 
 import io.munros.library.data.enums.MunroCategory
-import io.munros.library.util.CsvData
+import io.munros.library.data.model.CsvData
 import java.io.BufferedReader
 import java.io.FileReader
 import java.io.IOException
@@ -74,7 +74,8 @@ fun String?.importMunrosFromCsv(): ArrayList<CsvData>? {
                     values[date_1990],
                     values[date_1997],
                     values[Post_1997]?.toMunroCategory(MUNRO, TOP),
-                    null)
+                    null
+                )
 
                 munros.add(csvData)
 

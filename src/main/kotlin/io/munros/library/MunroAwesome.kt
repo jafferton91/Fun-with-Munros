@@ -3,8 +3,8 @@ package io.munros.library
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
 import io.munros.library.data.model.Munro
-import io.munros.library.util.CsvData
-import io.munros.library.util.MunroException
+import io.munros.library.data.model.CsvData
+import io.munros.library.exception.MunroException
 
 /**
  *
