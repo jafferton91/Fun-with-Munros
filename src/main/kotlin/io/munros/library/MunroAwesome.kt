@@ -55,9 +55,13 @@ fun List<CsvData>?.sortByHeight(sortDirection: SortDirection?): List<CsvData>? {
 }
 
 fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<CsvData>? {
-    if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
-
+    validateHeights(minHeight, maxHeight)
     return this?.filter { x -> x.heightMetres != null && x.heightMetres >= minHeight && x.heightMetres <= maxHeight }
+
+}
+
+private fun validateHeights(minHeight: Double, maxHeight: Double) {
+    if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
 
 }
 
