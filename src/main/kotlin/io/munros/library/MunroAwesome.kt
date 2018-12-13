@@ -76,7 +76,7 @@ fun List<CsvData>?.createAscChain(vararg selectors: (CsvData) -> Comparable<*>?)
 
 /**
  *
- * Wrap std lib sorted with to create chained desc filtering.
+ * Create chained desc filtering.
  *
  */
 fun List<CsvData>?.createDescChain(vararg selectors: (CsvData) -> Comparable<*>?): List<CsvData>? {
