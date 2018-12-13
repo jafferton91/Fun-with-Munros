@@ -17,7 +17,7 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, 2000.0, MunroCategory.Top))
         testSet.add(createCsvDataForTest(chrisNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, 2000.0, MunroCategory.Top))
-        testSet.add(createCsvDataForTest(elfNevis, 2000.0, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(funNevis, 2000.0, MunroCategory.Top))
 
         val listOfMunros = testSet.sortByCategory(MunroCategory.Munro)?.endChain()
@@ -34,7 +34,7 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, 2000.0, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, 2000.0, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, 2000.0, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, 2000.0, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, 2000.0, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, 2000.0, MunroCategory.Top))
 
@@ -46,12 +46,12 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         assertEquals(benNevis, listAsc[1].name)
         assertEquals(chrisNevis, listAsc[2].name)
         assertEquals(daveNevis, listAsc[3].name)
-        assertEquals(elfNevis, listAsc[4].name)
+        assertEquals(ellieNevis, listAsc[4].name)
         assertEquals(funNevis, listAsc[5].name)
 
         // desc order
         assertEquals(funNevis, listDesc!![0].name)
-        assertEquals(elfNevis, listDesc[1].name)
+        assertEquals(ellieNevis, listDesc[1].name)
         assertEquals(daveNevis, listDesc[2].name)
         assertEquals(chrisNevis, listDesc[3].name)
         assertEquals(benNevis, listDesc[4].name)
@@ -65,7 +65,7 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
@@ -96,7 +96,7 @@ internal class MunroAwesomeCoreTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 

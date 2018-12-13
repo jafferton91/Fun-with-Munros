@@ -18,7 +18,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
@@ -34,7 +34,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, null))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
@@ -53,7 +53,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
@@ -69,7 +69,7 @@ internal class EdgeCaseTests : BaseTest() {
         testSet.add(createCsvDataForTest(benNevis, medium, MunroCategory.Top))
         testSet.add(createCsvDataForTest(funNevis, smaller, MunroCategory.Top))
         testSet.add(createCsvDataForTest(amyNevis, biggest, MunroCategory.Munro))
-        testSet.add(createCsvDataForTest(elfNevis, small, MunroCategory.Munro))
+        testSet.add(createCsvDataForTest(ellieNevis, small, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(chrisNevis, big, MunroCategory.Munro))
         testSet.add(createCsvDataForTest(daveNevis, smallest, MunroCategory.Top))
 
