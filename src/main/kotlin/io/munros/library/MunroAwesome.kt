@@ -2,8 +2,8 @@ package io.munros.library
 
 import io.munros.library.data.enums.MunroCategory
 import io.munros.library.data.enums.SortDirection
-import io.munros.library.util.CsvData
 import io.munros.library.data.model.Munro
+import io.munros.library.util.CsvData
 import io.munros.library.util.MunroException
 
 /**
@@ -54,6 +54,40 @@ fun List<CsvData>?.filterHeights(minHeight: Double, maxHeight: Double): List<Csv
     if (minHeight > maxHeight) { throw MunroException("The minimum height cannot be higher than the maximum") }
 
     return this?.filter { x -> x.heightMetres != null && x.heightMetres >= minHeight && x.heightMetres <= maxHeight }
+
+}
+
+/**
+ *
+ * Wrap std lib sorted with to create chained asc filtering.
+ *
+ * Supporting 2 fields for this
+ *
+ */
+fun List<CsvData>?.createAscChain(vararg selectors: (CsvData) -> Comparable<*>?): List<CsvData>? {
+    validateFields(selectors.size)
+    return this?.sortedWith(compareBy(selectors[0], selectors[1]))
+
+}
+
+/**
+ *
+ * Wrap std lib sorted with to create chained desc filtering.
+ *
+ */
+fun List<CsvData>?.createDescChain(vararg selectors: (CsvData) -> Comparable<*>?): List<CsvData>? {
+    validateFields(selectors.size)
+    return this?.sortedWith(compareByDescending(selectors[0]).thenByDescending(selectors[1]))
+
+}
+
+/**
+ *
+ * Throw if we have anything other than 2 fields
+ *
+ */
+private fun validateFields(fieldCount: Int) {
+    if (fieldCount != 2) { throw MunroException("You must use 2 fields for this filter") }
 
 }
 

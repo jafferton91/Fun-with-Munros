@@ -6,7 +6,7 @@ open class BaseTest {
     protected val benNevis = "Ben Nevis"
     protected val chrisNevis = "Chris Nevis"
     protected val daveNevis = "Dave Nevis"
-    protected val ellieNevis = "Elf Nevis"
+    protected val ellieNevis = "Ellie Nevis"
     protected val funNevis = "Fun Nevis"
 
     protected val smallest = 1000.0
